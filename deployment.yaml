@@ -1,0 +1,22 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: single-spa-planets
+spec:
+  selector:
+    matchLabels:
+      app: single-spa-planets
+  template:
+    metadata:
+      labels:
+        app: single-spa-planets
+    spec:
+      containers:
+      - name: single-spa-planets
+        image: ryanisfluffy/single-spa-planets:v0.0.1
+        resources:
+          limits:
+            memory: "128Mi"
+            cpu: "100m"
+        ports:
+        - containerPort: 8080
